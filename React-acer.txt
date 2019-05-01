@@ -1,0 +1,58 @@
+1)In the entire React application, there is going to be a single HTML file.
+2)manifest.json is like gives information about the react app or like a meta data
+3)npm start actually launches our app in the browser using development server. The command npm build actually builds the code and wraps the optimized code into a folder which is ready for deploy
+4)registerServiceWorker or ServiceWorke is used to pre-cache the app or cache-first the app inorder to overcome internet issues.Using a server worker with a cache-first strategy offers performance advantages, since the network is no longer a bottleneck for fulfilling navigation requests. It does mean, however, that developers (and users) will only see deployed updates are only visible on the "N+1" visit to a page, since previously cached resources are updated in the background.
+5)Every react component duty is IT SHOULD RENDER() or RETURN SOMETHING in order to render in the dom.
+6)The JSX code inside the render() will actually get compiled to React.createElement() internally which is the reason we actually import React eventhough we dont use it directly in the JSX code
+7)JSX is nothing but javascript helping us to write HTML code easily, but it is having some restrictions like in jsx we should use className and not class because class is reserved word in the javascript hence.
+8)JSX has one more restriction where it doesnot allow you to have multiple elements as in it should have a single root element which has multiple elements. It doesn't allow you to have multiple roots. So one should wrap everything under single element
+9)Components in react are used to create a function or a class anything will do
+10)React differentiates the custom and standard HTML elements by CAPS and SMALL letter. Custom components are <Person><Some><Div> where as the standard ones would be <div><h1>
+11)Whatever we have in the element like id name class can be accessed by props in the component level
+12)
+Function in React has props which manages what is pased to the HTML tag
+Class in React has State which manages the component internal data 
+13)Any change in the state of class will make the DOM re render
+14)https://reactjs.org/docs/events.html#supported-events
+15)React considers State and Prop if it has to rerender the DOM portions.
+It doesn't render entire dom instead it renders the only changes portions of state or prop. Check examples
+16)state is ideally present only for class components but if you want to use states inside a function component then need to use react hooks
+17)functional components will not have render method instead they return something to DOM.
+18)On hide and show using ternary op, the div or any element will be created and removed not hide and show
+19)Anything within the ( <div>....</div> ) I mean within the () is considered as JSX, you can use it with any element.
+20)Javascript offers a function .map which actually is used for converting an array. It converts the array into anything or something which we define in the function.
+21)Incase of splice > it modifies original array...WHY?
+because the pointer is pointing to same location.
+
+Incase of slice, we are copying the array and then modifying the copy only
+
+Example 1:
+var person = this.state.persons;
+person.splice(2)
+
+Here person will have the same pointer as the this.state.persons when you assign it directly.Modifying the person would obviously modify the this.state.persons
+
+Example 2:
+var person = this.state.persons.slice();
+person.splice(2)
+console.log(person)
+console.log(this.state.person)
+This way the person would store the copy and not the modification of main array.
+
+As alternative you can use ES6 feature to copy
+const person = [...this.state.persons] is equal to
+const person = this.state.persons.slice()
+
+The above technique shows you how to do immutable array approach where we dont modify the original array
+
+22)<Person ....
+clickFn = {() => this.deleteHandler(someData)}
+clickFn = {this.deleteHandler.bind(this,someData)}
+
+the above approaches are callback functions which are passed to the component and executed there. We use .bind in second approach where we tell the handler function to point to this class. In first approach it is anonymous function which is converted like this --
+
+() => this.deleteHandler(someData) 
+(() => return this.deleteHandler(someData));
+It returns the function call.
+
+23)React expects "key" property because it wants to keep track of individual elements so that it can rerender that alone if changed instead of rerendering everytime. Wonderful feature of the React it is which uses Virtual DOM to rerender only which is changed and not complete array

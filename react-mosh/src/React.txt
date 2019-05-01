@@ -1,0 +1,16 @@
+1)Not manadatory to have state in the react component file
+2)Application bootstrap starts with index.js, ReactDOM.render(<ComponentName>
+3)The react actually makes jsx expression to React.createElement(element,type...). In this case if you are having 2 elements then the function gets confused so we need to wrap it in the single element or wrap it with React.fragment
+4)Whenever we are dealing with multiline expression then add () to the return else it assumes empty as the element comes next line scenario
+5)state is a special object in the controller which actually can be passsed to controller's jsx dynamically or the state object will have data that component needs
+6)In jsx we can use {} to render the values dynamically (values should be in the state)
+7)If more than 1 element is to be rendered, it is adviced you wrap it in div tags or may be React.Fragment
+8)In javascript
+true && "Hi" // returns last truth value Hi
+true && "String" && 1 // returns last truth value 1
+9)In react the click or change events are passed with the reference of the function and not function call.
+10)"this' in javascript is like
+
+obj.someFunction // here this is referring to the obj
+function something(){} //here this is referring to the window object
+If the use strict mode is enabled then the this will be undefined
